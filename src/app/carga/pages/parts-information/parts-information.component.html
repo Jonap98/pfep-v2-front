@@ -1,0 +1,56 @@
+<h2>Parts information</h2>
+<hr>
+<h4>Información general</h4>
+
+<form
+  [formGroup]="partInfoForm!"
+  (ngSubmit)="onNext()"
+>
+
+  <div class="m-2 col-md-3">
+    <span>Número de parte</span>
+    <input type="text" class="form-control" formControlName="num_part" placeholder="Número de parte">
+    <span *ngIf="isValidField('num_part')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('num_part') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Descripción</span>
+    <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripción">
+    <span *ngIf="isValidField('descripcion')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('descripcion') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Grupo</span>
+    <input type="number" class="form-control" formControlName="grupo" placeholder="Grupo">
+    <span *ngIf="isValidField('grupo')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('grupo') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Familia</span>
+    <input type="text" class="form-control" formControlName="familia" placeholder="Familia">
+    <span *ngIf="isValidField('familia')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('familia') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3 d-grid gap-2">
+    <button class="btn btn-primary" (submit)="onNext()">Siguiente</button>
+  </div>
+
+</form>
+
+<div id="snackbar" [ngClass]="success ? 'show' : ''">{{ snackbarMessage }}</div>

@@ -1,0 +1,67 @@
+<div class="wrapper">
+
+  <!--Top menu -->
+  <div class="sidebar">
+     <!--profile image & text-->
+     <div class="profile">
+      <img src="assets/logo_blanco.png" alt="">
+      <hr class="divider">
+          <h2>PFEP</h2>
+          <p>Plan For Every Part</p>
+          <p>System</p>
+      </div>
+      <!--menu item-->
+      <ul>
+          <li
+            *ngFor="let item of sidebarItems"
+            [routerLink]="item.url"
+            routerLinkActive="active"
+          >
+            <span class="icon"><i class="fas fa-desktop"></i></span>
+            <span
+              class="item"
+            >{{ item.label }}</span>
+          </li>
+      </ul>
+
+  </div>
+
+
+  <!-- Navbar -->
+  <div class="section">
+      <div class="top_navbar d-flex justify-content-between">
+          <div class="hamburger">
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+              </a>
+          </div>
+          <!-- <span [routerLink]="'../auth'">Login</span> -->
+          <span
+            *ngFor="let item of navbarItems"
+            [routerLink]="item.url"
+          >{{ item.label }}</span>
+          <span (click)="onLogout()">Logout</span>
+
+      </div>
+
+      <div class="page-content">
+
+        <p-steps [model]="items!" [readonly]="readOnly" ></p-steps>
+
+        <!-- <div class="card">
+          <p-steps [model]="items!" [readonly]="false" ></p-steps>
+        </div> -->
+
+        <router-outlet></router-outlet>
+
+        <!-- <router-outlet
+          (navegacion)="activateRouter($event)"
+        ></router-outlet> -->
+      </div>
+
+  </div>
+
+
+</div>

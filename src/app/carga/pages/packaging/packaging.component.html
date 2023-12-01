@@ -1,0 +1,250 @@
+
+<h2>Empaque</h2>
+<hr class="divider">
+
+<ng-template #divLoading class="d-flex justify-content-center">
+  <div class="spinner-border text-primary"></div>
+</ng-template>
+
+<div class="mb-2 d-flex justify-content-start">
+  <!-- Filtros de búsqueda -->
+</div>
+
+<form
+  [formGroup]="packagingForm!"
+  (ngSubmit)="onSubmit()"
+>
+
+<div class="row">
+
+  <div class="col">
+
+    <div class="m-2">
+      <span>Número de parte</span>
+      <input type="text" class="form-control" formControlName="part_number" placeholder="Número de parte">
+    </div>
+    <span *ngIf="isValidField('part_number')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_number') }}
+    </span>
+
+    <div class="m-2">
+      <span>Peso</span>
+      <input type="number" class="form-control" formControlName="part_weight" placeholder="Peso">
+    </div>
+    <span *ngIf="isValidField('part_weight')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_weight') }}
+    </span>
+
+    <div class="m-2">
+      <span>UM</span>
+      <input type="text" class="form-control" formControlName="part_uom" placeholder="Unidad de medida">
+    </div>
+    <span *ngIf="isValidField('part_uom')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_uom') }}
+    </span>
+
+    <div class="m-2">
+      <span>Largo</span>
+      <input type="number" class="form-control" formControlName="part_length" placeholder="Largo">
+    </div>
+    <span *ngIf="isValidField('part_length')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_length') }}
+    </span>
+
+    <div class="m-2">
+      <span>Ancho</span>
+      <input type="number" class="form-control" formControlName="part_width" placeholder="Ancho">
+    </div>
+    <span *ngIf="isValidField('part_width')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_width') }}
+    </span>
+
+    <div class="m-2">
+      <span>Alto</span>
+      <input type="number" class="form-control" formControlName="part_height" placeholder="Alto">
+    </div>
+    <span *ngIf="isValidField('part_height')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('part_height') }}
+    </span>
+
+    <div class="m-2">
+      <span>Descripción</span>
+      <input type="text" class="form-control" formControlName="unit_load_description" placeholder="Descripción">
+    </div>
+    <span *ngIf="isValidField('unit_load_description')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('unit_load_description') }}
+    </span>
+
+    <div class="m-2">
+      <span>BC per unit load</span>
+      <input type="number" class="form-control" formControlName="bc_per_unit_load" placeholder="BC per unit load">
+    </div>
+    <span *ngIf="isValidField('bc_per_unit_load')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('bc_per_unit_load') }}
+    </span>
+
+    <div class="m-2">
+      <span>Piezas</span>
+      <input type="number" class="form-control" formControlName="pieces_pallet" placeholder="Piezas">
+    </div>
+    <span *ngIf="isValidField('pieces_pallet')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('pieces_pallet') }}
+    </span>
+
+    <div class="m-2">
+      <span>Carga mixta</span>
+      <select class="form-select" formControlName="mixed_load" aria-placeholder="Carga mixta">
+        <option value="Yes">Si</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <span *ngIf="isValidField('mixed_load')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('mixed_load') }}
+    </span>
+
+  </div>
+
+  <div class="col">
+
+    <div class="m-2">
+      <span>Longitud de carga unitaria</span>
+      <input type="number" class="form-control" formControlName="unit_load_length" placeholder="Longitud de carga unitaria">
+    </div>
+    <span *ngIf="isValidField('unit_load_length')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('unit_load_length') }}
+    </span>
+
+    <div class="m-2">
+      <span>Ancho de carga unitaria</span>
+      <input type="number" class="form-control" formControlName="unit_load_width" placeholder="Ancho de carga unitaria">
+    </div>
+    <span *ngIf="isValidField('unit_load_width')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('unit_load_width') }}
+    </span>
+
+    <div class="m-2">
+      <span>Altura de carga unitaria</span>
+      <input type="number" class="form-control" formControlName="unit_load_heght1" placeholder="Altura de carga unitaria">
+    </div>
+    <span *ngIf="isValidField('unit_load_heght1')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('unit_load_heght1') }}
+    </span>
+
+    <div class="m-2">
+      <span>Diametro de carga unitaria</span>
+      <input type="number" class="form-control" formControlName="unit_load_diameter" placeholder="Diametro de carga unitaria">
+    </div>
+    <span *ngIf="isValidField('unit_load_diameter')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('unit_load_diameter') }}
+    </span>
+
+    <div class="m-2">
+      <span>Descripción Base container</span>
+      <input type="text" class="form-control" formControlName="base_container_description" placeholder="Descripción del base container">
+    </div>
+    <span *ngIf="isValidField('base_container_description')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('base_container_description') }}
+    </span>
+
+    <div class="m-2">
+      <span>Cantidad base container</span>
+      <input type="number" class="form-control" formControlName="qty_base_container" placeholder="Cantidad del base container">
+    </div>
+    <span *ngIf="isValidField('qty_base_container')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('qty_base_container') }}
+    </span>
+
+    <div class="m-2">
+      <span>Largo Base container</span>
+      <input type="number" class="form-control" formControlName="base_container_length" placeholder="Largo de base container">
+    </div>
+    <span *ngIf="isValidField('base_container_length')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('base_container_length') }}
+    </span>
+
+    <div class="m-2">
+      <span>Ancho Base container</span>
+      <input type="number" class="form-control" formControlName="base_container_width" placeholder="Ancho del base container">
+    </div>
+    <span *ngIf="isValidField('base_container_width')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('base_container_width') }}
+    </span>
+
+    <div class="m-2">
+      <span>Altura Base container</span>
+      <input type="number" class="form-control" formControlName="base_container_height" placeholder="Altura del base container">
+    </div>
+    <span *ngIf="isValidField('base_container_height')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('base_container_height') }}
+    </span>
+
+    <div class="m-2">
+      <span>Diámetro Base container</span>
+      <input type="number" class="form-control" formControlName="base_container_diameter" placeholder="Diámetro del base container">
+    </div>
+    <span *ngIf="isValidField('base_container_diameter')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('base_container_diameter') }}
+    </span>
+
+    <div class="m-2">
+      <span>Vendor</span>
+      <input type="text" class="form-control" formControlName="vendor" placeholder="Vendor">
+    </div>
+    <span *ngIf="isValidField('vendor')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('vendor') }}
+    </span>
+
+    <div class="m-2 d-grid gap-2">
+      <button type="submit" class="btn btn-primary" (submit)="onSubmit()">Siguiente</button>
+    </div>
+
+  </div>
+
+</div>
+
+</form>
+
+<div id="snackbar" [ngClass]="success ? 'show' : ''">{{ snackbarMessage }}</div>
+

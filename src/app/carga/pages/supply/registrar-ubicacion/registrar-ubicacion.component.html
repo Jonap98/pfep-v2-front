@@ -1,0 +1,127 @@
+<form class="flex-flex-column gap-3"
+  [formGroup]="ubicacionForm!"
+  (ngSubmit)="onSubmit()"
+>
+
+  <div class="row">
+
+    <div class="col">
+
+      <div class="m-2">
+        <span>Número de parte</span>
+        <input type="text" class="form-control" formControlName="num_parte" placeholder="Número de parte">
+        <span *ngIf="isValidField('num_parte')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('num_parte') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Ubicación</span>
+        <input type="text" class="form-control" formControlName="ubicacion" placeholder="Ubicación">
+        <span *ngIf="isValidField('ubicacion')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('ubicacion') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Tramo</span>
+        <input type="text" class="form-control" formControlName="tramo" placeholder="Tramo">
+        <span *ngIf="isValidField('tramo')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('tramo') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Brazo</span>
+        <input type="text" class="form-control" formControlName="brazo" placeholder="Brazo">
+        <span *ngIf="isValidField('brazo')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('brazo') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Ruta</span>
+        <input type="text" class="form-control" formControlName="ruta" placeholder="Ruta">
+        <span *ngIf="isValidField('ruta')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('ruta') }}
+        </span>
+      </div>
+
+    </div>
+
+    <div class="col">
+
+      <div class="m-2">
+        <span>Método de surtido</span>
+        <input type="text" class="form-control" formControlName="metodo_surtido" placeholder="Método de surtido">
+        <span *ngIf="isValidField('metodo_surtido')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('metodo_surtido') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Parada</span>
+        <input type="number" class="form-control" formControlName="stop" placeholder="Parada">
+        <span *ngIf="isValidField('stop')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('stop') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Máximo</span>
+        <input type="number" class="form-control" formControlName="max" placeholder="Máximo">
+        <span *ngIf="isValidField('max')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('max') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Mínimo</span>
+        <input type="number" class="form-control" formControlName="min" placeholder="Mínimo">
+        <span *ngIf="isValidField('min')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('min') }}
+        </span>
+      </div>
+
+      <div class="m-2">
+        <span>Secuenciado</span>
+        <select class="form-select" formControlName="secuenciado" aria-placeholder="Secuenciado">
+          <option value="NO">No</option>
+          <option value="YES">Si</option>
+        </select>
+        <span *ngIf="isValidField('secuenciado')"
+            class="form-text text-danger"
+        >
+          {{ getFieldError('secuenciado') }}
+        </span>
+      </div>
+
+      <div class="m-2 d-grid gap-2">
+        <button class="btn btn-primary" (submit)="onSubmit()">Guardar</button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</form>

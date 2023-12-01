@@ -1,0 +1,56 @@
+<h2>Alamcén</h2>
+<hr>
+<!-- <h4>Información general</h4> -->
+
+<form
+  [formGroup]="warehouseForm!"
+  (ngSubmit)="onNext()"
+>
+
+  <div class="m-2 col-md-3">
+    <span>Número de parte</span>
+    <input type="text" class="form-control" formControlName="num_part" placeholder="Número de parte">
+    <span *ngIf="isValidField('num_part')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('num_part') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Ubicación fija</span>
+    <input type="text" class="form-control" formControlName="ubicacion" placeholder="Ubicación fija">
+    <span *ngIf="isValidField('ubicacion')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('ubicacion') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Standar pack</span>
+    <input type="number" class="form-control" formControlName="std_pack" placeholder="Standar pack">
+    <span *ngIf="isValidField('std_pack')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('std_pack') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3">
+    <span>Mínimo ubicación fija</span>
+    <input type="number" class="form-control" formControlName="min_ubicacion" placeholder="Mínimo ubicación fija">
+    <span *ngIf="isValidField('min_ubicacion')"
+        class="form-text text-danger"
+    >
+      {{ getFieldError('min_ubicacion') }}
+    </span>
+  </div>
+
+  <div class="m-2 col-md-3 d-grid gap-2">
+    <button class="btn btn-primary" (submit)="onNext()">Siguiente</button>
+  </div>
+
+</form>
+
+<div id="snackbar" [ngClass]="success ? 'show' : ''">{{ snackbarMessage }}</div>

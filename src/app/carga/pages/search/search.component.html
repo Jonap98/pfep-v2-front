@@ -1,0 +1,17 @@
+<h2>PFEP</h2>
+<hr>
+<h4>Buscar número de parte</h4>
+
+<form
+  [formGroup]="partForm!"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="m-2 col-md-3">
+    <input type="text" class="form-control" formControlName="num_part" placeholder="Número de parte">
+  </div>
+
+  <div class="m-2 col-md-3">
+    <button class="btn btn-primary" (submit)="onSubmit()">Buscar</button>
+  </div>
+
+</form>
